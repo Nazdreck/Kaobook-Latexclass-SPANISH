@@ -36,11 +36,11 @@
 %----------------------------------------------------------------------------------------
 
 % Elementos del Indice
-\makeindex[columns=3, title=Alphabetical Index, intoc] % Hace que LaTeX produzca los archivos necesarios para compilar el indice
+\makeindex[columns=3, title=Índice Alfabético, intoc] % Hace que LaTeX produzca los archivos necesarios para compilar el indice
 
 % Elementos de la biblografia
-\usepackage{styles/kaobiblio}	% Carga el paquete para la biblografia de la Clase Kaobook
-\addbibresource{references.bib} % Define el archivo donde se guardan las referencias bibliograficas
+\usepackage{styles/kaobiblio}				% Carga el paquete para la biblografia de la Clase Kaobook
+\addbibresource{backmatter/references.bib} 	% Define el archivo donde se guardan las referencias bibliograficas
 
 % Elementos del Glosario
 \makeglossaries % Hace que LaTeX produzca los archivos necesarios para compilar el glosario
@@ -58,20 +58,8 @@
 %----------------------------------------------------------------------------------------
 %	CARATULA
 %----------------------------------------------------------------------------------------
-
-\titlehead{Plantilla de \LaTeX} 	% Aqui va un encabezado del titulo
-\subject{Para hacer lindos libros}	% Aqui va un asunto
-
-% El titulo del libro
-\title[Plantilla la Clase {\normalfont\texttt{kaobook}}]{Plantilla la Clase {\normalfont\texttt{kaobook}}}
-% El subtitulo del libro
-\subtitle{Ahora en Español}
-% Autor
-\author[JBG]{Nahuel E. Gómez}
-% Fecha de Publicacion
-\date{\today}
-% Editorial
-\publishers{Un Editor Impresionante}
+% Editar el archivo cover.tex a combeniencia
+\input{frontmatter/cover.tex}
 
 %----------------------------------------------------------------------------------------
 %------------------------------------- FRONTMATTER --------------------------------------
@@ -81,41 +69,14 @@
 %----------------------------------------------------------------------------------------
 %	PAGINA DE COPYRIGHT
 %----------------------------------------------------------------------------------------
-% Editar esta seccion a combeniencia.
-\makeatletter
-\uppertitleback{\@titlehead} % ENCABEZADO
-
-\lowertitleback{
-	\textbf{Disclaimer} \\
-	You can edit this page to suit your needs. For instance, here we have a no copyright statement, a colophon and some other information. This page is based on the corresponding page of Ken Arroyo Ohori's thesis, with minimal changes.
-	
-	\medskip
-	
-	\textbf{No copyright} \\
-	\cczero\ This book is released into the public domain using the CC0 code. To the extent possible under law, I waive all copyright and related or neighbouring rights to this work.
-	
-	To view a copy of the CC0 code, visit: \\\url{http://creativecommons.org/publicdomain/zero/1.0/}
-	
-	\medskip
-	
-	\textbf{Colophon} \\
-	This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
-	
-	\medskip
-	
-	\textbf{Publisher} \\
-	First printed in May 2019 by \@publishers
-}
-\makeatother
+% Editar el archivo copyright.tex a combeniencia
+\input{frontmatter/copyright.tex}
 
 %----------------------------------------------------------------------------------------
 %	DEDICACION
 %----------------------------------------------------------------------------------------
-% Editar esta seccion a combeniencia.
-\dedication{
-	The harmony of the world is made manifest in Form and Number, and the heart and soul and all the poetry of Natural Philosophy are embodied in the concept of mathematical beauty.\\
-	\flushright -- D'Arcy Wentworth Thompson
-}
+% Editar el archivo dedication.tex a combeniencia
+\input{frontmatter/dedication.tex}
 
 %----------------------------------------------------------------------------------------
 %	IMPRIME LA CARATULA, ENCABEZADO Y DEDICACION
@@ -131,9 +92,8 @@
 %----------------------------------------------------------------------------------------
 %	PREFACIO
 %----------------------------------------------------------------------------------------
-
-\chapter*{Prefacio}
-\blindtext
+% Editar el archivo preface.tex a combeniencia
+\input{frontmatter/preface.tex}
 
 %----------------------------------------------------------------------------------------
 %	TABLA DE CONTENIDOS Y LISTA DE FIGURAS/TABLAS
@@ -168,33 +128,10 @@
 \mainmatter % Indica el comienzo del contenido principal del documento, resetea el conteo de paginas y usa numeros arabigos en la tabla de contenidos
 
 %----------------------------------------------------------------------------------------
-%	CAPITULOS
+%	CONTENIDOS
 %----------------------------------------------------------------------------------------
 
-% Ejemplo de Capitulo
-\setchapterstyle{kao} % Eligue el estilo de encabezado por defecto del capitulo
-\chapter{First Chapter}
-\blindtext
-
-% Ejemplo de Parte
-\pagelayout{wide} 	% Sin margenes
-\addpart{Title of the Part}
-\pagelayout{margin} % Restaura los margenes
-
-\chapter{Second Chapter}
-\blindtext
-
-%----------------------------------------------------------------------------------------
-%	APENDICES
-%----------------------------------------------------------------------------------------
-\appendix % De aqui en adelante los capitulos se numeran con letras latinas
-
-\pagelayout{wide} 	% Sin margenes
-\addpart{Apéndices}
-\pagelayout{margin} % Restaura los margenes
-
-\chapter{Some more blindtext}
-\blindtext
+\input{mainmatter/estructure.tex}
 
 %----------------------------------------------------------------------------------------
 %------------------------------------- BACKMATTER ---------------------------------------
@@ -215,11 +152,10 @@
 %----------------------------------------------------------------------------------------
 % La nomenclatura necesita ser compilada en la linea de comandos con 'makeindex main.nlo -s nomencl.ist -o main.nls' desde el directorio de la plantilla
 
-\nomenclature{$c$}{Speed of light in a vacuum inertial frame}
-\nomenclature{$h$}{Planck constant}
+\input{backmatter/nomenclature.tex}
 
 \renewcommand{\nomname}{Notación} % Configura el nombre de la nomenclatura
-\renewcommand{\nompreamble}{La siguiente lista describe los diversos simbolos que se utilizan dentro del libro.} % Antepone este texto a la nomenclatura
+\renewcommand{\nompreamble}{La siguiente lista describe los diversos símbolos que se utilizan dentro del libro.} % Antepone este texto a la nomenclatura
 
 \printnomenclature % Imprime la nomenclatura
 
@@ -257,14 +193,7 @@
 %----------------------------------------------------------------------------------------
 % El glosario necesita ser compilado en la linea de comandos con 'makeglossaries main' desde el directorio de la plantilla
 
-\newglossaryentry{computer}{
-	name=computer,
-	description={is a programmable machine that receives input, stores and manipulates data, and provides output in a useful format}
-}
-
-% Glossary entries (used in text with e.g. \acrfull{fpsLabel} or \acrshort{fpsLabel})
-\newacronym[longplural={Frames per Second}]{fpsLabel}{FPS}{Frame per Second}
-\newacronym[longplural={Tables of Contents}]{tocLabel}{TOC}{Table of Contents}
+\input{backmatter/glossary.tex}
 
 \setglossarystyle{listgroup} % Configura el estilo del glosario (ver https://en.wikibooks.org/wiki/LaTeX/Glossary para una referencia)
 \printglossary[title=Glosario, toctitle=Glosario] % Imprime el glosario, 'title' es el encabezado del glosario, toctitle es el encabezado que se muestra en la toc

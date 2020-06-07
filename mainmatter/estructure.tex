@@ -1,0 +1,28 @@
+%----------------------------------------------------------------------------------------
+%	CAPITULOS
+%----------------------------------------------------------------------------------------
+
+% Ejemplo de Capitulo
+\setchapterstyle{kao} % Eligue el estilo de encabezado por defecto del capitulo
+\chapter{First Chapter}
+\blindtext
+
+% Ejemplo de Parte
+\pagelayout{wide} 	% Sin margenes
+\addpart{Title of the Part}
+\pagelayout{margin} % Restaura los margenes
+
+\chapter{Second Chapter}
+\blindtext
+
+%----------------------------------------------------------------------------------------
+%	APENDICES
+%----------------------------------------------------------------------------------------
+\appendix % De aqui en adelante los capitulos se numeran con letras latinas
+
+\pagelayout{wide} 	% Sin margenes
+\addpart{Apéndices}
+\pagelayout{margin} % Restaura los margenes
+
+\chapter{Some more blindtext}
+\blindtext
