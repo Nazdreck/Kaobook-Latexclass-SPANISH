@@ -1,112 +1,89 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% kaobook
-% LaTeX Template
-% Version 1.3 (18/2/20)
-%
-% This template originates from:
-% https://www.LaTeXTemplates.com
-%
-% For the latest template development version and to make contributions:
-% https://github.com/fmarotta/kaobook
-%
-% Authors:
-% Federico Marotta (federicomarotta@mail.com)
-% Giuseppe Silano (g.silano89@gmail.com)
-% Based on the doctoral thesis of Ken Arroyo Ohori (https://3d.bk.tudelft.nl/ken/en)
-% and on the Tufte-LaTeX class.
-% Modified for LaTeX Templates by Vel (vel@latextemplates.com)
-%
-% License:
-% CC0 1.0 Universal (see included MANIFEST.md file)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%-------------------------------------- PREAMBULO ---------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\documentclass[				% Define la clase del documento y las opciones
+	fontsize=10pt, 		 	% Tamaño de Fuente Base.
+	twoside=true, 		 	% Si es true, usa diseños distintos para paginas pares e impares.
+	%open=any, 			 	% Descomentar para que los capitulos puedan comenzar en cualquier pagina y no solo las pares.
+	%chapterprefix=true, 	% Descomentar para usar la palabra "Capitulo" antes de cada numero de capitulo, donde sea que aparezcan
+	%chapterentrydots=true, % Descomentar para poner puntos desde el nombre del capitulo al numero de pagina en la tabla de contenidos 
+	numbers=noenddot, 		% Elimina el punto detras del numero de cada capitulo, poner enddot para ponerlos devuelta
+	%draft=true, 			% Descomentar para agregar reglas al encabezado y pie de pagina
+	%overfullrule=true, 	% If uncommented, overly long lines will be marked by a black box; useful for correcting spacing problems
+]{kaobook}					% La clase a usar es Kaobook
+
+% Configura el idioma
+\usepackage[spanish]{babel} 			% Elige el idioma
+\usepackage[english=spanish]{csquotes}	% Citas españolas
 
 %----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%	ELEMENTOS DEL MAINMATTER
 %----------------------------------------------------------------------------------------
 
-\documentclass[
-	fontsize=10pt, % Base font size
-	twoside=false, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
-	%open=any, % If twoside=true, uncomment this to force new chapters to start on any page, not only on right (odd) pages
-	%chapterprefix=true, % Uncomment to use the word "Chapter" before chapter numbers everywhere they appear
-	%chapterentrydots=true, % Uncomment to output dots from the chapter name to the page number in the table of contents
-	numbers=noenddot, % Comment to output dots after chapter numbers; the most common values for this option are: enddot, noenddot and auto (see the KOMAScript documentation for an in-depth explanation)
-	%draft=true, % If uncommented, rulers will be added in the header and footer
-	%overfullrule=true, % If uncommented, overly long lines will be marked by a black box; useful for correcting spacing problems
-]{kaobook}
-
-% Choose the language
-\usepackage[english]{babel} % Load characters and hyphenation
-\usepackage[english=british]{csquotes}	% English quotes
-
-% Load packages for testing
+% Paquete para realizar testeos:
 \usepackage{blindtext}
-%\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
-%\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
 
-% Load the bibliography package
-\usepackage{styles/kaobiblio}
-\addbibresource{references.bib} % Bibliography file
+% Carga paquetes de matematica para teoremas y ambientes relacionados: elegir solo uno entre 'mdftheorems' and 'plaintheorems'.
+\usepackage{styles/mdftheorems}			% Ambientes coloreados
+%\usepackage{styles/plaintheorems}		% Ambientes sin colores
 
-% Load mathematical packages for theorems and related environments. NOTE: choose only one between 'mdftheorems' and 'plaintheorems'.
-\usepackage{styles/mdftheorems}
-%\usepackage{styles/plaintheorems}
-
-\graphicspath{{images/}{./}} % Paths in which to look for images
-
-\makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
-
-\makeglossaries % Make LaTeX produce the files required to compile the glossary
-
-\makenomenclature % Make LaTeX produce the files required to compile the nomenclature
+\graphicspath{{images/}{./}} % Define la ruta donde se guardaran las imagenes
 
 %----------------------------------------------------------------------------------------
-
-\begin{document}
-
-%----------------------------------------------------------------------------------------
-%	BOOK INFORMATION
+%	ELEMENTOS DEL FRONTMATTER Y EL BACKMATTER
 %----------------------------------------------------------------------------------------
 
-\titlehead{Document Template}
-% \subject{Subject}
+% Elementos del Indice
+\makeindex[columns=3, title=Alphabetical Index, intoc] % Hace que LaTeX produzca los archivos necesarios para compilar el indice
 
-\title[Template for the {\normalfont\texttt{kaobook}} Class]{Template for the {\normalfont\texttt{kaobook}} Class}
-% \subtitle{Subtitle}
+% Elementos de la biblografia
+\usepackage{styles/kaobiblio}	% Carga el paquete para la biblografia de la Clase Kaobook
+\addbibresource{references.bib} % Define el archivo donde se guardan las referencias bibliograficas
 
-\author[JBG]{Johnny B. Goode}
+% Elementos del Glosario
+\makeglossaries % Hace que LaTeX produzca los archivos necesarios para compilar el glosario
 
+% Elementos de la Nomenclatura
+\makenomenclature % Hace que LaTeX produzca los archivos necesarios para compilar la nomenclatura
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%---------------------------------------- CUERPO ----------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\begin{document} % Comienza el contenido del documento
+
+%----------------------------------------------------------------------------------------
+%	CARATULA
+%----------------------------------------------------------------------------------------
+
+\titlehead{Plantilla de \LaTeX} 	% Aqui va un encabezado del titulo
+\subject{Para hacer lindos libros}	% Aqui va un asunto
+
+% El titulo del libro
+\title[Plantilla la Clase {\normalfont\texttt{kaobook}}]{Plantilla la Clase {\normalfont\texttt{kaobook}}}
+% El subtitulo del libro
+\subtitle{Ahora en Español}
+% Autor
+\author[JBG]{Nahuel E. Gómez}
+% Fecha de Publicacion
 \date{\today}
-
-\publishers{An Awesome Publisher}
-
-%----------------------------------------------------------------------------------------
-
-\frontmatter % Denotes the start of the pre-document content, uses roman numerals
+% Editorial
+\publishers{Un Editor Impresionante}
 
 %----------------------------------------------------------------------------------------
-%	OPENING PAGE
+%------------------------------------- FRONTMATTER --------------------------------------
 %----------------------------------------------------------------------------------------
-
-% \makeatletter
-% \extratitle{
-% 	% In the title page, the title is vspaced by 9.5\baselineskip
-% 	\vspace*{9\baselineskip}
-% 	\vspace*{\parskip}
-% 	\begin{center}
-% 		% In the title page, \huge is set after the komafont for title
-% 		\usekomafont{title}\huge\@title
-% 	\end{center}
-% }
-% \makeatother
+\frontmatter % Indica el comienzo del contenido previo al documento, se usan numeros romanos en la tabla de contenidos
 
 %----------------------------------------------------------------------------------------
-%	COPYRIGHT PAGE
+%	PAGINA DE COPYRIGHT
 %----------------------------------------------------------------------------------------
-
+% Editar esta seccion a combeniencia.
 \makeatletter
-\uppertitleback{\@titlehead} % Header
+\uppertitleback{\@titlehead} % ENCABEZADO
 
 \lowertitleback{
 	\textbf{Disclaimer} \\
@@ -132,154 +109,153 @@
 \makeatother
 
 %----------------------------------------------------------------------------------------
-%	DEDICATION
+%	DEDICACION
 %----------------------------------------------------------------------------------------
-
+% Editar esta seccion a combeniencia.
 \dedication{
 	The harmony of the world is made manifest in Form and Number, and the heart and soul and all the poetry of Natural Philosophy are embodied in the concept of mathematical beauty.\\
 	\flushright -- D'Arcy Wentworth Thompson
 }
 
 %----------------------------------------------------------------------------------------
-%	OUTPUT TITLE PAGE AND PREVIOUS
+%	IMPRIME LA CARATULA, ENCABEZADO Y DEDICACION
 %----------------------------------------------------------------------------------------
+% Notar que \maketitle imprime las paginas antes de aqui
 
-% Note that \maketitle outputs the pages before here
-
-% If twoside=false, \uppertitleback and \lowertitleback are not printed
-% To overcome this issue, we set twoside=semi just before printing the title pages, and set it back to false just after the title pages
+% Si twoside=false, \uppertitleback y \lowertitleback no se imprimen
+% Para solucionar esto, configuramos twoside=semi justo antes de las paginas de inicio, y volvemos a poner false despues de ellas
 \KOMAoptions{twoside=semi}
 \maketitle
 \KOMAoptions{twoside=false}
 
 %----------------------------------------------------------------------------------------
-%	PREFACE
+%	PREFACIO
 %----------------------------------------------------------------------------------------
 
-\chapter*{Preface}
-
+\chapter*{Prefacio}
 \blindtext
 
 %----------------------------------------------------------------------------------------
-%	TABLE OF CONTENTS & LIST OF FIGURES/TABLES
+%	TABLA DE CONTENIDOS Y LISTA DE FIGURAS/TABLAS
 %----------------------------------------------------------------------------------------
 
-\begingroup % Local scope for the following commands
+\begingroup % Alcance local para los siguientes comandos
 
-% Define the style for the TOC, LOF, and LOT
-%\setstretch{1} % Uncomment to modify line spacing in the ToC
-%\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
-\setlength{\textheight}{23cm} % Manually adjust the height of the ToC pages
+% Define el estilo para TOC, LOF y LOT.
 
-% Turn on compatibility mode for the etoc package
-\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
-\etocstandardlines % "toc lines as if etoc was not loaded
+%\setstretch{1} 				% Descomentar para modificar el espacio entre lineas en la TOC
+%\hypersetup{linkcolor=blue} 	% Descomenter para configurar el color de los vinculos en la TOC
+\setlength{\textheight}{23cm} 	% Ajusta manualmente la altura de las paginas de la TOC
 
-\tableofcontents % Output the table of contents
+% Activa el modo de compatibilidad para el paquete etoc
+\etocstandarddisplaystyle 	% "toc display" como si etoc no estuviera cargado
+\etocstandardlines 			% "toc lines" como si etoc no estuviera cargado
 
-\listoffigures % Output the list of figures
+\tableofcontents 	% Imprime la Tabla de Contenidos
+\listoffigures 		% Imprime la Lista de Figuras
 
-% Comment both of the following lines to have the LOF and the LOT on different pages
+% Comentar las dos siguientes lineas para tenes la LOF y la LOT en paginas diferentes
 \let\cleardoublepage\bigskip
 \let\clearpage\bigskip
 
-\listoftables % Output the list of tables
+\listoftables 		% Imprime la Lista de Tablasa
 
 \endgroup
 
 %----------------------------------------------------------------------------------------
-%	MAIN BODY
+%------------------------------------- MAINMATTER ---------------------------------------
+%----------------------------------------------------------------------------------------
+\mainmatter % Indica el comienzo del contenido principal del documento, resetea el conteo de paginas y usa numeros arabigos en la tabla de contenidos
+
+%----------------------------------------------------------------------------------------
+%	CAPITULOS
 %----------------------------------------------------------------------------------------
 
-\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
-\setchapterstyle{kao} % Choose the default chapter heading style
-
+% Ejemplo de Capitulo
+\setchapterstyle{kao} % Eligue el estilo de encabezado por defecto del capitulo
 \chapter{First Chapter}
-
 \blindtext
 
-\pagelayout{wide} % No margins
+% Ejemplo de Parte
+\pagelayout{wide} 	% Sin margenes
 \addpart{Title of the Part}
-\pagelayout{margin} % Restore margins
+\pagelayout{margin} % Restaura los margenes
 
 \chapter{Second Chapter}
-
 \blindtext
 
-\appendix % From here onwards, chapters are numbered with letters, as is the appendix convention
+%----------------------------------------------------------------------------------------
+%	APENDICES
+%----------------------------------------------------------------------------------------
+\appendix % De aqui en adelante los capitulos se numeran con letras latinas
 
-\pagelayout{wide} % No margins
+\pagelayout{wide} 	% Sin margenes
 \addpart{Appendix}
-\pagelayout{margin} % Restore margins
+\pagelayout{margin} % Restaura los margenes
 
 \chapter{Some more blindtext}
-
 \blindtext
 
 %----------------------------------------------------------------------------------------
-
-\backmatter % Denotes the end of the main document content
-\setchapterstyle{plain} % Output plain chapters from this point onwards
+%------------------------------------- BACKMATTER ---------------------------------------
+%----------------------------------------------------------------------------------------
+\backmatter % Indica el fin del contenido princial del cuerpo
+\setchapterstyle{plain} % Imprime capitulos planos a partir de este punto
 
 %----------------------------------------------------------------------------------------
-%	BIBLIOGRAPHY
+%	BIBLIOGRAFIA
 %----------------------------------------------------------------------------------------
+% La bibliografia necesita ser compilada con biber usando tu editor de LaTeX, o en la linea de comandos con 'biber main' desde el directorio de la plantilla
 
-% The bibliography needs to be compiled with biber using your LaTeX editor, or on the command line with 'biber main' from the template directory
-
-\defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
-\printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
+\defbibnote{bibnote}{En orden de citación.\par\bigskip} % Imprime este texto antes de la bibliografia
+\printbibliography[heading=bibintoc, title=Referencias, prenote=bibnote] % Imprime la bibliografia. Ademas, agrega la bibliografia al encabezado de la TOC, configura el titulo de la bibliografia e imprime la nota de la bibliografia definida en la linea anterior
 
 %----------------------------------------------------------------------------------------
-%	NOMENCLATURE
+%	NOMENCLATURA
 %----------------------------------------------------------------------------------------
-
-% The nomenclature needs to be compiled on the command line with 'makeindex main.nlo -s nomencl.ist -o main.nls' from the template directory
+% La nomenclatura necesita ser compilada en la linea de comandos con 'makeindex main.nlo -s nomencl.ist -o main.nls' desde el directorio de la plantilla
 
 \nomenclature{$c$}{Speed of light in a vacuum inertial frame}
 \nomenclature{$h$}{Planck constant}
 
-\renewcommand{\nomname}{Notation} % Rename the default 'Nomenclature'
-\renewcommand{\nompreamble}{The next list describes several symbols that will be later used within the body of the document.} % Prepend this text to the nomenclature
+\renewcommand{\nomname}{Notación} % Configura el nombre de la nomenclatura
+\renewcommand{\nompreamble}{La siguiente lista describe los diversos simbolos que se utilizan dentro del libro.} % Antepone este texto a la nomenclatura
 
-\printnomenclature % Output the nomenclature
+\printnomenclature % Imprime la nomenclatura
 
 %----------------------------------------------------------------------------------------
-%	GREEK ALPHABET
-% 	Originally from https://gitlab.com/jim.hefferon/linear-algebra
+%	ALFABETO GRIEGO
 %----------------------------------------------------------------------------------------
 
 \vspace{1cm}
-
-{\usekomafont{chapter}Greek Letters with Pronounciation} \\[2ex]
+{\usekomafont{chapter}Alfabeto Griego} \\[2ex]
 \begin{center}
 	\newcommand{\pronounced}[1]{\hspace*{.2em}\small\textit{#1}}
 	\begin{tabular}{l l @{\hspace*{3em}} l l}
 		\toprule
-		Character & Name & Character & Name \\ 
+		Letra & Nombre & Letra & Nombre \\ 
 		\midrule
-		$\alpha$ & alpha \pronounced{AL-fuh} & $\nu$ & nu \pronounced{NEW} \\
-		$\beta$ & beta \pronounced{BAY-tuh} & $\xi$, $\Xi$ & xi \pronounced{KSIGH} \\ 
-		$\gamma$, $\Gamma$ & gamma \pronounced{GAM-muh} & o & omicron \pronounced{OM-uh-CRON} \\
-		$\delta$, $\Delta$ & delta \pronounced{DEL-tuh} & $\pi$, $\Pi$ & pi \pronounced{PIE} \\
-		$\epsilon$ & epsilon \pronounced{EP-suh-lon} & $\rho$ & rho \pronounced{ROW} \\
-		$\zeta$ & zeta \pronounced{ZAY-tuh} & $\sigma$, $\Sigma$ & sigma \pronounced{SIG-muh} \\
-		$\eta$ & eta \pronounced{AY-tuh} & $\tau$ & tau \pronounced{TOW (as in cow)} \\
-		$\theta$, $\Theta$ & theta \pronounced{THAY-tuh} & $\upsilon$, $\Upsilon$ & upsilon \pronounced{OOP-suh-LON} \\
-		$\iota$ & iota \pronounced{eye-OH-tuh} & $\phi$, $\Phi$ & phi \pronounced{FEE, or FI (as in hi)} \\
-		$\kappa$ & kappa \pronounced{KAP-uh} & $\chi$ & chi \pronounced{KI (as in hi)} \\
-		$\lambda$, $\Lambda$ & lambda \pronounced{LAM-duh} & $\psi$, $\Psi$ & psi \pronounced{SIGH, or PSIGH} \\
-		$\mu$ & mu \pronounced{MEW} & $\omega$, $\Omega$ & omega \pronounced{oh-MAY-guh} \\
+		$\alpha$ & alfa & $\nu$ & nu  \\
+		$\beta$ & beta & $\xi$, $\Xi$ & xi \\ 
+		$\gamma$, $\Gamma$ & gamma  & o & ómicron \\
+		$\delta$, $\Delta$ & delta  & $\pi$, $\Pi$ & pi  \\
+		$\epsilon$ & épsilon & $\rho$ & rho  \\
+		$\zeta$ & zeta \ & $\sigma$, $\Sigma$ & sigma  \\
+		$\eta$ & eta  & $\tau$ & tau  \\
+		$\theta$, $\Theta$ & theta  & $\upsilon$, $\Upsilon$ & úpsilon  \\
+		$\iota$ & iota  & $\phi$, $\Phi$ & phi  \\
+		$\kappa$ & kappa  & $\chi$ & chi  \\
+		$\lambda$, $\Lambda$ & lambda  & $\psi$, $\Psi$ & psi  \\
+		$\mu$ & mu  & $\omega$, $\Omega$ & omega  \\
 		\bottomrule
 	\end{tabular} \\[1.5ex]
-	Capitals shown are the ones that differ from Roman capitals.
+	Solo se muestran las letras griegas mayúsculas que difieren de las latinas.
 \end{center}
 
 %----------------------------------------------------------------------------------------
-%	GLOSSARY
+%	GLOSARIO
 %----------------------------------------------------------------------------------------
-
-% The glossary needs to be compiled on the command line with 'makeglossaries main' from the template directory
+% El glosario necesita ser compilado en la linea de comandos con 'makeglossaries main' desde el directorio de la plantilla
 
 \newglossaryentry{computer}{
 	name=computer,
@@ -290,22 +266,20 @@
 \newacronym[longplural={Frames per Second}]{fpsLabel}{FPS}{Frame per Second}
 \newacronym[longplural={Tables of Contents}]{tocLabel}{TOC}{Table of Contents}
 
-\setglossarystyle{listgroup} % Set the style of the glossary (see https://en.wikibooks.org/wiki/LaTeX/Glossary for a reference)
-\printglossary[title=Special Terms, toctitle=List of Terms] % Output the glossary, 'title' is the chapter heading for the glossary, toctitle is the table of contents heading
+\setglossarystyle{listgroup} % Configura el estilo del glosario (ver https://en.wikibooks.org/wiki/LaTeX/Glossary para una referencia)
+\printglossary[title=Glosario, toctitle=Glosario] % Imprime el glosario, 'title' es el encabezado del glosario, toctitle es el encabezado que se muestra en la toc
 
 %----------------------------------------------------------------------------------------
 %	INDEX
 %----------------------------------------------------------------------------------------
+% El indice necesita ser compilado en la linea de comandos con 'makeindex main' desde el directorio de la plantilla
 
-% The index needs to be compiled on the command line with 'makeindex main' from the template directory
-
-\printindex % Output the index
+\printindex % Imprime el indice
 
 %----------------------------------------------------------------------------------------
-%	BACK COVER
+%	CONTRAPORTADA
 %----------------------------------------------------------------------------------------
-
-% If you have a PDF/image file that you want to use as a back cover, uncomment the following lines
+% Si tenes una imagen/archivo PDF que quieras usar como contraportada, descomenta las siguientes lineas.
 
 %\clearpage
 %\thispagestyle{empty}
@@ -314,5 +288,4 @@
 %\includepdf{cover-back.pdf}
 
 %----------------------------------------------------------------------------------------
-
 \end{document}
