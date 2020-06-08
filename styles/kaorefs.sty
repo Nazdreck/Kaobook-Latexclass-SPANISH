@@ -22,11 +22,11 @@
 % Note that \label must appear after \caption
 
 \RequirePackage{hyperref}
-\RequirePackage{varioref}
+\RequirePackage[spanish]{varioref}
 %\RequirePackage{cleveref} % Don't use cleveref! It breaks everything
 
-\newcommand{\sectionname}{Section}
-\newcommand{\subsectionname}{Subsection}
+\newcommand{\sectionname}{Sección}
+\newcommand{\subsectionname}{Subsección}
 
 \newcommand{\labpage}[1]{\label{page:#1}}
 \newcommand{\labpart}[1]{\label{part:#1}}
@@ -59,7 +59,7 @@
 \newcommand{\frefpart}[1]{\hyperref[part:#1]{\partname\xspace\ref{part:#1} (\nameref{part:#1}) \vpageref{part:#1}}} % Part IV (Name of the Part), Part IV (Name of the Part) on the following page, Part IV (Name of the Part) on page 84)
 
 %\newcommand{\refch}[1]{\hyperref[#1]{\chaptername\xspace\usekomafont{chapter}\normalsize\nameref{ch:#1}}\xspace\vpageref{ch:#1}\,}
-\newcommand{\refchshort}[1]{\hyperref[ch:#1]{Chap.~\ref{ch:#1}}}
+\newcommand{\refchshort}[1]{\hyperref[ch:#1]{Cap.~\ref{ch:#1}}}
 \newcommand{\refch}[1]{\hyperref[ch:#1]{\chaptername\xspace\ref{ch:#1}}}
 \newcommand{\vrefch}[1]{\hyperref[ch:#1]{\chaptername\xspace\vref{ch:#1}}}
 \newcommand{\nrefch}[1]{\hyperref[ch:#1]{\chaptername\xspace\ref{ch:#1} (\nameref{ch:#1})}}
