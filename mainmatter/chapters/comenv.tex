@@ -232,10 +232,32 @@ Algunos ejemplos de como referenciar distintas cosas: \refdef{unadefinicion}, \r
 
 También se pueden citar distintas partes de la estructura del libro.
 \begin{itemize}
-    \item Parte: \refpart{contprinp}
-    \item Capítulo: \refch{comenv}
-    \item Sección: \refsec{figytab}
-    \item Página: \refpage{unapagina}
+    \item Partes:
+    \begin{itemize}
+        \item \arefpart{contprinp}
+        \item \avrefpart{contprinp}
+    \end{itemize}
+    \item Capítulos:
+    \begin{itemize}
+        \item \refchshort{comenv}
+        \item \refch{comenv}
+        \item \vrefch{comenv}
+        \item \nrefch{comenv}
+        \item \frefch{comenv}
+    \end{itemize}
+    \item Secciones:
+    \begin{itemize}
+        \item \refsecshort{figytab}
+        \item \refsec{figytab}
+        \item \vrefsec{figytab}
+        \item \nrefsec{figytab}
+        \item \frefsec{figytab}
+    \end{itemize}
+    \item Páginas:
+    \begin{itemize}
+        \item \refpage{unapagina}
+        \item \vrefpage{unapagina}
+    \end{itemize}
 \end{itemize}
 
 Esta es una ecuación:
