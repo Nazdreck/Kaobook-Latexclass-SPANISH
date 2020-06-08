@@ -2,18 +2,15 @@
 %	CAPITULOS
 %----------------------------------------------------------------------------------------
 
-% Ejemplo de Capitulo
-\setchapterstyle{kao} % Eligue el estilo de encabezado por defecto del capitulo
-\chapter{First Chapter}
-\blindtext
-
 % Ejemplo de Parte
 \pagelayout{wide} 	% Sin margenes
-\addpart{Title of the Part}
+\addpart{Contenido Principal}
+\labpart{contprinp}
 \pagelayout{margin} % Restaura los margenes
 
-\chapter{Second Chapter}
-\blindtext
+% Debajo se introducen los capitulos de la parte
+\input{mainmatter/chapters/comenv.tex}
+
 
 %----------------------------------------------------------------------------------------
 %	APENDICES
@@ -24,5 +21,5 @@
 \addpart{Apéndices}
 \pagelayout{margin} % Restaura los margenes
 
-\chapter{Some more blindtext}
-\blindtext
+% Debajo se introducen los apendices
+\input{mainmatter/appendices/appendix.tex}
