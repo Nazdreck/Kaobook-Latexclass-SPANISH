@@ -15,7 +15,7 @@
 ]{kaobook}					% La clase a usar es Kaobook
 
 % Configura el idioma
-\usepackage[spanish,es-tabla]{babel} 			% Elige el idioma
+\usepackage[spanish,es-tabla]{babel} 	% Elige el idioma, usa "Tabla" en vez de "Cuadros"
 \usepackage[spanish=spanish]{csquotes}	% Citas españolas
 
 %----------------------------------------------------------------------------------------
@@ -24,6 +24,9 @@
 
 % Paquete para realizar testeos:
 \usepackage{blindtext}
+
+% Listings en español:
+\renewcommand{\lstlistingname}{Código}
 
 % Carga paquetes de matematica para teoremas y ambientes relacionados: elegir solo uno entre 'mdftheorems' and 'plaintheorems'.
 \usepackage{styles/mdftheorems}			% Ambientes coloreados
@@ -131,7 +134,7 @@
 %	CONTENIDOS
 %----------------------------------------------------------------------------------------
 
-\input{mainmatter/estructure.tex}
+\input{mainmatter/structure.tex}
 
 %----------------------------------------------------------------------------------------
 %------------------------------------- BACKMATTER ---------------------------------------
