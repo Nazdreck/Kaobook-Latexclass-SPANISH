@@ -12,23 +12,35 @@ Esta es una plantilla de la clase Kaobook creada por Federico Marotta, cuya vers
 Adicionalmente, esta versión esta reordenada de tal forma que no sea necesario involucrarse con los archivos de configuración importantes a la hora de editar la plantilla. Basicamente cuenta con las siguientes carpetas y archivos:
 \begin{itemize}
     \item \textbf{frontmatter:} el contenido previo al texto principal como:
+    \begin{itemize}
         \item \textbf{cover.tex} La portada del libro, con el título y los autores.
         \item \textbf{copyright.tex} La página de derechos de autor.
         \item \textbf{dedication.tex} Una breve dedicación.
         \item \textbf{preface.tex} Prefacio del libro.
+    \end{itemize} 
     \item \textbf{mainmatter:} el contenido principal del documento, el cual esta dividido en:
+    \begin{itemize}
         \item \textbf{chapters:} capítulos.
-            \item \textbf{comenv.tex} Comandos y Ambientes, las lineas que estas leyendo.
+        \begin{itemize}
+            \item \textbf{comenv.tex} Comandos y Ambientes, las líneas que estas leyendo. 
+        \end{itemize}
         \item \textbf{appendices:} apéndices.
+        \begin{itemize}
             \item \textbf{appendix.tex} Apéndices de ejemplos, con listas y familias de fuentes.
-        \item \textbf{estructure.tex} Aquí se construye la estructura de las partes, capítulos y apéndices del libro.
+        \end{itemize}
+        \item \textbf{structure.tex} Aquí se construye la estructura de las partes, capítulos y apéndices del libro. 
+    \end{itemize}
     \item \textbf{backmatter:} el contenido de la parte final del libro, que incluye:
+    \begin{itemize}
         \item \textbf{references.bib} Las referencias bibliográficas.
         \item \textbf{nomenclature.tex} La nomeclatura o notación utilizada en el libro.
-        \item \textbf{glossary.tex} El glosario del libro con las siglas, abreviaciones y términos especiales.
+        \item \textbf{glossary.tex} El glosario del libro con las siglas, abreviaciones y términos especiales. 
+    \end{itemize}
     \item \textbf{images:} aquí van las imagenes del libro.
+    \begin{itemize}
         \item \textbf{monalisa.jpg} La mona lisa.
-        \item \textbf{seaside.jpeg} Una playa. 
+        \item \textbf{seaside.jpeg} Una playa.  
+    \end{itemize}
     \item \textbf{styles:} los archivos que contienen la información pertinente a los paquetes utilizados, ambientes creados, definiciones, configuraciones, estilos. No deberías modificar los archivos de esta carpeta.
     \item \textbf{kaobook.cls} El archivo que contiene la información pertinente a la clase kaobook, no deberías modificarlo.
     \item \textbf{main.tex} El archivo principal de la plantilla, todo se compila desde aquí. No es necesario modificarlo a menos que quieras editar cosas referidas al backmatter.
@@ -48,8 +60,9 @@ En el resto de las secciones se muestran los distintos comandos y ambientes trad
 En la clase kaobook se pueden poner tres tipos de tablas y figuras: las <<\emph{normales}>>, las que van en los <<\emph{márgenes}>>, y las <<\emph{anchas}>> que ocupan todo el ancho de la hoja.
 
 \subsection{Figuras y Tablas Normales}
-\index{Figura}, \index{Tabla}
-Las figuras y tablas normales usan los ambientes mas comunes de \LaTeX para insertar estos objetos: \Environment{figure} y \Environment{table}. Por ejemplo, aquí hay una imagen de la Mona Lisa \reffig{normalmonalisa}. Puede verse que la leyenda se muestra comodamente en el amplio margen a su costado y tanto este como la referencia en el texto se muestran en español.
+\index{Figura} \index{Tabla}
+
+Las figuras y tablas normales usan los ambientes más comunes de \LaTeX para insertar estos objetos: \Environment{figure} y \Environment{table}. Por ejemplo, aquí hay una imagen de la Mona Lisa \reffig{normalmonalisa}. Puede verse que la leyenda se muestra comodamente en el amplio margen a su costado y tanto este como la referencia en el texto se muestran en español.
 
 \begin{figure}[hb]
 	\includegraphics[width=0.45\textwidth]{monalisa}
@@ -79,7 +92,7 @@ Las tablas pueden ser insertadas igual de fácil que las figuras, como se ejempl
 el cual resulta en la inútil \vreftab{useless}.
 
 \begin{table}[h]
-\caption[Una Tabla Inutil]{Una Tabla Inutil.}
+\caption[Una Tabla Inútil]{Una Tabla Inútil.}
 \labtab{useless}
 \begin{tabular}{ c c c c }
 	\toprule
@@ -94,8 +107,6 @@ el cual resulta en la inútil \vreftab{useless}.
 	\bottomrule
 \end{tabular}
 \end{table}
-
-No hay nada mas al respecto. Texto sin sentido: \blindtext
 
 \subsection{Figuras y Tablas al Margen}
 Las figuras al margen se insertan utilizando el ambiente \Environment{marginfigure}. En este caso toda la imagen esta confinada en el margen y la leyenda se muestra debajo de ella. La \reffig{marginmonalisa} se obtiene con algo como esto:
