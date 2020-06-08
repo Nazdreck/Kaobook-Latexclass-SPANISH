@@ -14,7 +14,7 @@ También me tome la libertad de reordenar el contenido de la plantilla, de forma
     - **comenv.tex** Capítulo donde se muestran los comandos y ambientes traducidos al español
   - **appendices:** apéndices.
     - **appendix.tex** Un apéndice de ejemplo, con listas y familias de fuentes.
-  - **estructure.tex** Aquí se construye la estructura de las partes, capítulos y apéndices del libro.
+  - **structure.tex** Aquí se construye la estructura de las partes, capítulos y apéndices del libro.
 - **backmatter:** el contenido de la parte final del libro, que incluye:
   - **references.bib** Las referencias bibliográficas.
   - **nomenclature.tex** La nomeclatura o notación utilizada en el libro.
