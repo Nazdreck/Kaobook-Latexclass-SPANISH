@@ -26,6 +26,7 @@ También me tome la libertad de reordenar el contenido de la plantilla, de forma
 - **kaobook.cls** El archivo que contiene la información pertinente a la clase kaobook, no deberías modificarlo.
 - **main.tex** El archivo principal de la plantilla, todo se compila desde aquí. No es necesario modificarlo a menos que quieras editar cosas referidas al backmatter.
 - **README.md** Archivo leeme.
+- **Kaobook-Latexclass-SPANISH.pdf** Documento de ejemplo.
 
 Reiterando, la idea es que no es necesario modificar los archivos *kaobook.cls*, *main.tex* y todos aquellos que están en la carpeta *styles* para utilizar esta plantilla. Toda la edición del libro se hace en las carpetas *frontmatter*, *mainmatter* y *backmatter*. Las figuras se guardan en la carpeta *images*.
 
